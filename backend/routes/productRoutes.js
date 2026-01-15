@@ -5,8 +5,12 @@ const asyncHandler = require('express-async-handler');
 
 
 router.get('/',asyncHandler(async(req,res)=>{
-    const products=await Product.find({});
+    try{
+        const products=await Product.find({});
     res.json(products);
+    }catch(error){
+        res.status(500).json({message: error.message});
+    }
 }));
 
 router.get('/:id',asyncHandler(async(req,res)=>{
