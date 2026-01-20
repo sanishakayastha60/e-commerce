@@ -9,6 +9,11 @@ const CartScreen = () =>{
         const savedCart = localStorage.getItem('cartItems');
         return savedCart ? JSON.parse(savedCart):[];
     });
+    const removeFromCartHandler=(id)=>{
+        const updatedCart = cartItems.filter((x)=>x._id !==id);
+        setCartItems(updatedCart);
+        localStorage.setItem('cartItems',JSON.stringify(updatedCart));
+    };
     useEffect(()=>{
         if(id){
             console.log("Detect",id);
@@ -52,6 +57,7 @@ const CartScreen = () =>{
                         <Link to={`/product/${item._id}`} className="font-bold hover:text-indigo-600">{item.name}</Link>
                         <p className="font-semibold">${item.price}</p>
                         <p className="text-gray-500">Qty: {item.qty}</p>
+                        <button onClick={()=>removeFromCartHandler(item._id)} className='text-red-500 hover:text-red-700 ml-4'>Remove</button>
                     </div>
                 ))}
             </div>
