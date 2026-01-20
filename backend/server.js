@@ -3,17 +3,21 @@ const dotenv = require ('dotenv');
 const colors = require ('colors');
 const connectDB = require ('./config/db');
 const productRoutes = require ('./routes/productRoutes');
+import userRoutes from './routes/userRoutes.js';
+import cookieParser from 'cookie-parser';
 dotenv.config();
 
 connectDB();
 const app = express();
 
+app.use(cookieParser());
 app.use(express.json());
 
 app.get('/test',(req,res)=>{
     res.send("Server immediate");
 });
 app.use('/api/products',productRoutes);
+app.use('/api/users',userRoutes);
 // app.get('/',(req,res)=>{
 //     res.send('API is running...');
 // });
