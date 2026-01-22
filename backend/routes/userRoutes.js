@@ -1,6 +1,6 @@
-import express from 'express';
-import User from '../models/userModel.js';
-import generateToken from '../utils/generateToken.js';
+const express = require('express');
+const User = require('../models/userModel.js');
+const generateToken = require('../utils/generateToken.js');
 
 const router = express.Router();
 router.post('/login', async(req,res) => {
@@ -19,4 +19,4 @@ router.post('/login', async(req,res) => {
     }
 });
 
-export default router;
+module.exports=router;

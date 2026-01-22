@@ -3,8 +3,8 @@ const dotenv = require ('dotenv');
 const colors = require ('colors');
 const connectDB = require ('./config/db');
 const productRoutes = require ('./routes/productRoutes');
-import userRoutes from './routes/userRoutes.js';
-import cookieParser from 'cookie-parser';
+const userRoutes = require ('./routes/userRoutes.js');
+const cookieParser = require('cookie-parser');
 dotenv.config();
 
 connectDB();
