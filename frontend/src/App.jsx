@@ -5,6 +5,7 @@ import ProductScreen from './screens/ProductScreen';
 import CartScreen from './screens/CartScreen';
 import LoginScreen from './screens/LoginScreen';
 import RegisterScreen from './screens/RegisterScreen';
+import ShippingScreen from './screens/ShippingScreen';
 
 function App(){
   const userInfo = localStorage.getItem('userInfo') ? JSON.parse(localStorage.getItem('userInfo')) : null ;
@@ -34,6 +35,7 @@ function App(){
           <Route path="/cart/:id?" element={<CartScreen />}/>
           <Route path="/login" element={<LoginScreen />}/>
           <Route path="/register" element={<RegisterScreen />}/>
+          <Route path="/shipping" element={<ShippingScreen />}/>
         </Routes>
       </main>
       </div>
