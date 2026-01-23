@@ -4,10 +4,10 @@ import { Link, useSearchParams } from "react-router-dom";
 const PaymentSuccess = () => {
     const [searchParams] = useSearchParams();
     const data = searchParams.get('data');
-    // useEffect(()=>{
-    //     localStorage.removeItem(cartItems);
-    //     console.log("eSewa Response Data: ",data);
-    // },[data]);
+    useEffect(()=> {
+        localStorage.removeItem('cartItems');
+        console.log("eSewa Response Data: ",data);
+    },[data]);
 
     return (
         <div className="flex flex-col items-center justify-center min-h-[60vh] text-center p-4">
