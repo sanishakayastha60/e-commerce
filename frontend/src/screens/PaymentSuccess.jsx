@@ -3,11 +3,17 @@ import { Link, useSearchParams } from "react-router-dom";
 
 const PaymentSuccess = () => {
     const [searchParams] = useSearchParams();
-    const data = searchParams.get('data');
+    const encodedData = searchParams.get('data');
     useEffect(()=> {
-        localStorage.removeItem('cartItems');
-        console.log("eSewa Response Data: ",data);
-    },[data]);
+        try{ 
+            const decodedString = atob(encodedData);
+            const paymentInfo = JSON.parse(decodedString);
+            console.log("Payment Verified:", paymentInfo.transaction_code);
+            localStorage.removeItem('cartItems');
+        }catch(error){
+            console.error("Error decoding eSewa response", error);
+        }
+    },[encodedData]);
 
     return (
         <div className="flex flex-col items-center justify-center min-h-[60vh] text-center p-4">

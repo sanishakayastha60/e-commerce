@@ -24,7 +24,7 @@ const ProductScreen=()=>{
                 <img src={product.image} alt={product.name} className="w-full rounded-lg shadow-lg" />
                 <div className='space-y-4'>
                     <h2 className="text-4xl font-bold mb-4">{product.name}</h2>
-                    <p className="text-xl text-indigo-600 font-bold mb-4">{product.price}</p>
+                    <p className="text-xl text-indigo-600 font-bold mb-4">${product.price}</p>
                     <p className="text-gray-600 mb-6">{product.description}</p>
                     <div className="flex items-center space-x-4">
                         <span>Qty:</span>
