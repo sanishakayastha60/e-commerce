@@ -8,6 +8,7 @@ import RegisterScreen from './screens/RegisterScreen';
 import ShippingScreen from './screens/ShippingScreen';
 import PaymentScreen from './screens/PaymentScreen';
 import PlaceOrderScreen from './screens/PlaceOrderScreen';
+import PaymentSuccess from './screens/PaymentSuccess';
 
 function App(){
   const userInfo = localStorage.getItem('userInfo') ? JSON.parse(localStorage.getItem('userInfo')) : null ;
@@ -40,6 +41,8 @@ function App(){
           <Route path="/shipping" element={<ShippingScreen />}/>
           <Route path="/payment" element={<PaymentScreen />}/>
           <Route path="/placeorder" element={<PlaceOrderScreen />}/>
+          <Route path="/esewa_payment_success" element={<PaymentSuccess />}/>
+          <Route path="/esewa_payment_failed" element={<div>Payment Failed. Please try again</div>}/>
         </Routes>
       </main>
       </div>
